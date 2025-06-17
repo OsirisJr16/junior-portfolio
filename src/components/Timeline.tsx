@@ -172,7 +172,7 @@ const Timeline: React.FC = () => {
         {experiences.map((experience, index) => (
           <div
             key={experience.id}
-            ref={el => itemRefs.current[index] = el}
+            ref={(el) => {itemRefs.current[index] = el}}
             data-index={index}
           >
             <TimelineItem
