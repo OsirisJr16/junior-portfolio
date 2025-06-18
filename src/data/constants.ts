@@ -1,4 +1,45 @@
 import type { Experience } from '../types/experience';
+import type { Project } from '../types/project';
+
+export const projects: Project[] = [
+  {
+    id: "ufm-website",
+    title: "UFM Madagascar Website",
+    role: "Full Stack Developer",
+    company: "Freelance",
+    period: "Jan 2025 - Apr 2025",
+    location: "Remote",
+    description: [
+      "Developed the frontend and backend of the UFM Madagascar Website using ReactJS and ExpressJS",
+      "Collaborated with clients to meet technical and functional requirements",
+      "Implemented responsive design and optimized performance"
+    ],
+    techStack: ["ReactJS", "Node.js", "PostgreSQL", "Express"],
+    links: {
+      github: "https://github.com/junior-osiris/ufm-website",
+      live: "https://ufm-madagascar.org"
+    },
+    featured: true
+  },
+  {
+    id: "innov-platform",
+    title: "Training Platform",
+    role: "React Developer",
+    company: "INNOV-T Madagascar",
+    period: "Jun 2024 - Nov 2024",
+    location: "Fianarantsoa",
+    description: [
+      "Developed and maintained internal applications for the company",
+      "Designed and developed a platform for sharing training materials and courses",
+      "Implemented user authentication and course management system"
+    ],
+    techStack: ["ReactJS", "Node.js", "MongoDB", "Express", "NextJS"],
+    links: {
+      github: "https://github.com/junior-osiris/training-platform"
+    },
+    featured: true
+  },
+];
 
 export const experiences: Experience[] = [
    {

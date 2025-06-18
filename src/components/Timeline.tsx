@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Calendar, MapPin, ExternalLink, GitBranch } from "lucide-react";
 import { experiences } from "../data/constants";
 import type { Experience } from "../types/experience";
-
+import TerminalPrompt from "../shared/TerminalPrompt";
 interface TimelineItemProps { 
   experience:Experience,
   index: number , 
@@ -186,10 +186,7 @@ const Timeline: React.FC = () => {
 
       {/* Terminal Prompt */}
       <div className="mt-12 p-4 bg-gray-900/30 border border-gray-700/30 rounded-lg">
-        <div className="flex items-center gap-2 text-sm">
-          <span className="text-emerald-400">junior-osiris@portfolio:~/experiences$</span>
-          <span className="animate-pulse text-cyan-400">_</span>
-        </div>
+        <TerminalPrompt section="experiences" />
       </div>
     </div>
   );

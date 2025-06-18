@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import type { SkillCategory } from "../types/skillCategory";
 import type { Skill } from "../types/skill";
 import { Code, Database, Server, Wrench } from "lucide-react";
+import TerminalPrompt from "../shared/TerminalPrompt";
 
 const skillCategories: SkillCategory[] = [
   {
@@ -16,9 +17,9 @@ const skillCategories: SkillCategory[] = [
         category: "frontend",
       },
       {
-        name : "Angular",
-        level: 75 , 
-        category : 'frontend'
+        name: "Angular",
+        level: 75,
+        category: "frontend",
       },
       {
         name: "TypeScript",
@@ -62,7 +63,6 @@ const skillCategories: SkillCategory[] = [
         name: "REST APIs",
         level: 80,
         category: "backend",
-
       },
       {
         name: "Python",
@@ -91,7 +91,6 @@ const skillCategories: SkillCategory[] = [
         name: "MySQL",
         level: 80,
         category: "database",
-
       },
     ],
   },
@@ -268,7 +267,7 @@ const SkillsSection: React.FC = () => {
 
   return (
     <section
-      id='skills'
+      id="skills"
       ref={sectionRef}
       className="min-h-screen bg-gradient-to-br from-gray-900 via-slate-900 to-gray-900 py-20"
     >
@@ -408,12 +407,7 @@ const SkillsSection: React.FC = () => {
 
         {/* Terminal Prompt */}
         <div className="max-w-6xl mx-auto mt-12 p-4 bg-gray-900/30 border border-gray-700/30 rounded-lg">
-          <div className="flex items-center gap-2 text-sm">
-            <span className="text-emerald-400">
-              junior-osiris@portfolio:~/skills$
-            </span>
-            <span className="animate-pulse text-cyan-400">_</span>
-          </div>
+          <TerminalPrompt section="skills" />
         </div>
       </div>
     </section>
