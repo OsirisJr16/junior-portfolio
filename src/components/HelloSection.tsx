@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowUp, ArrowDown, ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowUp, ArrowDown, ArrowLeft, ArrowRight ,Download} from "lucide-react";
 import backgroundBlur from "../assets/background.png";
 import SnakeGame from "./SnakeGame";
 import { motion } from "framer-motion";
@@ -73,6 +73,21 @@ const HelloSection: React.FC = () => {
                   rel="noopener noreferrer"
                 >
                   https://github.com/OsirisJr16
+                </a>
+              </div>
+              <div className="flex items-center space-x-2 text-xs md:text-lg">
+                <span className="text-purple-400">const</span>
+                <span className="text-accent-cyan">cvLink</span>
+                <span className="text-white">=</span>
+                <a
+                  href="/path/to/your-cv.pdf"
+                  className="text-accent-orange hover:text-orange-300 transition-colors underline flex items-center space-x-1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download
+                >
+                  <Download size={16} />
+                  <span>Download CV</span>
                 </a>
               </div>
             </motion.div>
