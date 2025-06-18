@@ -1,16 +1,16 @@
-import React, { useState } from 'react'
-import { Menu, X } from 'lucide-react'
+import React, { useState } from "react";
+import { Menu, X } from "lucide-react";
 
 export const Navbar: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { id: 'hello', label: '_hello' },
-    { id: 'skills', label: '_skills' },
-    { id: 'experiences', label: '_experiences' },
-    { id: 'projects', label: '_projects' },
-    { id: 'contact', label: '_contact-me' }
-  ]
+    { id: "hello", label: "_hello" },
+    { id: "skills", label: "_skills" },
+    { id: "experiences", label: "_experiences" },
+    { id: "projects", label: "_projects" },
+    { id: "contact", label: "_contact-me" },
+  ];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-700/50">
@@ -42,6 +42,7 @@ export const Navbar: React.FC = () => {
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-slate-400 hover:text-slate-200 p-2"
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -67,5 +68,5 @@ export const Navbar: React.FC = () => {
         )}
       </div>
     </nav>
-  )
-}
+  );
+};
