@@ -1,10 +1,13 @@
+import { Suspense, lazy } from "react";
 import { Navbar } from "./layout/NavBar";
 import Footer from "./layout/Footer";
 import HelloSection from "./components/HelloSection";
-import SkillSections from "./components/SkillsSection";
-import ExperiencesSection from "./components/ExperiencesSection";
-import ProjectSections from "./components/ProjectSections";
 import "./App.css";
+
+// Lazy-loaded components
+const SkillSections = lazy(() => import("./components/SkillsSection"));
+const ExperiencesSection = lazy(() => import("./components/ExperiencesSection"));
+const ProjectSections = lazy(() => import("./components/ProjectSections"));
 
 function App() {
   return (
@@ -12,9 +15,11 @@ function App() {
       <Navbar />
       <main className="pt-12">
         <HelloSection />
-        <SkillSections />
-        <ExperiencesSection />
-        <ProjectSections />
+        <Suspense fallback={<div className="text-white p-4">Loading skills...</div>}>
+          <SkillSections />
+          <ExperiencesSection />
+          <ProjectSections />
+        </Suspense>
       </main>
       <Footer />
     </div>
