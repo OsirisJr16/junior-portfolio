@@ -37,7 +37,7 @@ const HelloSection: React.FC = () => {
                 className="text-5xl md:text-7xl font-bold text-white font-code "
                 variants={fadeInUp}
               >
-                Junior Osiris 🔥 
+                Junior Osiris
               </motion.h1>
               <motion.div
                 className="flex items-center space-x-2"
