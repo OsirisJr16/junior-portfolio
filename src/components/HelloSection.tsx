@@ -80,7 +80,7 @@ const HelloSection: React.FC = () => {
                 <span className="text-accent-cyan">cvLink</span>
                 <span className="text-white">=</span>
                 <a
-                  href="/path/to/your-cv.pdf"
+                  href="/cv.pdf"
                   className="text-accent-orange hover:text-orange-300 transition-colors underline flex items-center space-x-1"
                   target="_blank"
                   rel="noopener noreferrer"
