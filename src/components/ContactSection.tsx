@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
-import { 
-  Mail, 
-  Github, 
-  Linkedin, 
-  MapPin, 
-  Phone, 
-  Send, 
-  User, 
+import {
+  Mail,
+  Github,
+  Linkedin,
+  MapPin,
+  Phone,
+  Send,
+  User,
   MessageSquare,
   CheckCircle,
-  AlertCircle
+  AlertCircle,
 } from "lucide-react";
 
 interface ContactForm {
@@ -33,35 +33,35 @@ const contactInfo: ContactInfo[] = [
     label: "Email",
     value: "mintsanavalonajunior@gmail.com",
     link: "mailto:mintsanavalonajunior@gmail.com",
-    color: "cyan"
+    color: "cyan",
   },
   {
     icon: <Phone size={20} />,
     label: "Phone",
-    value: "+261 34 17 14 779",
+    value: "+261 34 17 147 79",
     link: "tel:+261341714779",
-    color: "emerald"
+    color: "emerald",
   },
   {
     icon: <MapPin size={20} />,
     label: "Location",
     value: "Antananarivo, Madagascar",
-    color: "purple"
+    color: "purple",
   },
   {
     icon: <Github size={20} />,
     label: "GitHub",
     value: "github.com/OsirisJr16",
     link: "https://github.com/OsirisJr16",
-    color: "orange"
+    color: "orange",
   },
   {
     icon: <Linkedin size={20} />,
     label: "LinkedIn",
     value: "linkedin.com/in/junior-osiris-mintsanavalona",
     link: "https://www.linkedin.com/in/junior-osiris-mintsanavalona-35307627a/",
-    color: "blue"
-  }
+    color: "blue",
+  },
 ];
 
 interface ContactCardProps {
@@ -70,14 +70,21 @@ interface ContactCardProps {
   delay: number;
 }
 
-const ContactCard: React.FC<ContactCardProps> = ({ info, isVisible, delay }) => {
+const ContactCard: React.FC<ContactCardProps> = ({
+  info,
+  isVisible,
+  delay,
+}) => {
   const getColorClasses = (color: string) => {
     const colors = {
       cyan: "border-cyan-400/50 text-cyan-400 hover:border-cyan-400 hover:shadow-cyan-400/20",
-      emerald: "border-emerald-400/50 text-emerald-400 hover:border-emerald-400 hover:shadow-emerald-400/20",
-      purple: "border-purple-400/50 text-purple-400 hover:border-purple-400 hover:shadow-purple-400/20",
-      orange: "border-orange-400/50 text-orange-400 hover:border-orange-400 hover:shadow-orange-400/20",
-      blue: "border-blue-400/50 text-blue-400 hover:border-blue-400 hover:shadow-blue-400/20"
+      emerald:
+        "border-emerald-400/50 text-emerald-400 hover:border-emerald-400 hover:shadow-emerald-400/20",
+      purple:
+        "border-purple-400/50 text-purple-400 hover:border-purple-400 hover:shadow-purple-400/20",
+      orange:
+        "border-orange-400/50 text-orange-400 hover:border-orange-400 hover:shadow-orange-400/20",
+      blue: "border-blue-400/50 text-blue-400 hover:border-blue-400 hover:shadow-blue-400/20",
     };
     return colors[color as keyof typeof colors] || colors.cyan;
   };
@@ -88,22 +95,28 @@ const ContactCard: React.FC<ContactCardProps> = ({ info, isVisible, delay }) => 
       emerald: "bg-emerald-400/10",
       purple: "bg-purple-400/10",
       orange: "bg-orange-400/10",
-      blue: "bg-blue-400/10"
+      blue: "bg-blue-400/10",
     };
     return colors[color as keyof typeof colors] || colors.cyan;
   };
 
   const CardContent = () => (
-    <div className={`p-4 rounded-lg border-2 transition-all duration-300 bg-gray-900/50 hover:shadow-lg ${getColorClasses(info.color)} ${
-      isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
-    }`}
-    style={{ transitionDelay: `${delay}ms` }}>
+    <div
+      className={`p-4 rounded-lg border-2 transition-all duration-300 bg-gray-900/50 hover:shadow-lg ${getColorClasses(
+        info.color
+      )} ${
+        isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+      }`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
       <div className="flex items-center gap-3">
         <div className={`p-2 rounded-lg ${getBgColorClasses(info.color)}`}>
           {info.icon}
         </div>
         <div>
-          <div className="text-xs text-gray-400 uppercase tracking-wide">{info.label}</div>
+          <div className="text-xs text-gray-400 uppercase tracking-wide">
+            {info.label}
+          </div>
           <div className="text-sm text-white font-medium">{info.value}</div>
         </div>
       </div>
@@ -111,7 +124,12 @@ const ContactCard: React.FC<ContactCardProps> = ({ info, isVisible, delay }) => 
   );
 
   return info.link ? (
-    <a href={info.link} target="_blank" rel="noopener noreferrer" className="block">
+    <a
+      href={info.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block"
+    >
       <CardContent />
     </a>
   ) : (
@@ -126,10 +144,12 @@ const ContactSection: React.FC = () => {
     name: "",
     email: "",
     subject: "",
-    message: ""
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
@@ -160,21 +180,23 @@ const ContactSection: React.FC = () => {
     }
   }, [visibleItems]);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await new Promise((resolve) => setTimeout(resolve, 2000));
       setSubmitStatus("success");
       setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
@@ -233,7 +255,9 @@ const ContactSection: React.FC = () => {
               <div className="bg-gray-900/50 border border-gray-700/50 rounded-lg p-6 backdrop-blur-sm">
                 <div className="flex items-center gap-2 mb-6">
                   <span className="text-emerald-400">$</span>
-                  <span className="text-gray-400 text-sm">whoami --contact</span>
+                  <span className="text-gray-400 text-sm">
+                    whoami --contact
+                  </span>
                 </div>
                 <div className="space-y-4">
                   {contactInfo.map((info, index) => (
@@ -257,15 +281,23 @@ const ContactSection: React.FC = () => {
                 <div className="space-y-3 text-sm text-gray-400">
                   <div className="flex items-start gap-2">
                     <span className="text-emerald-400 mt-1">•</span>
-                    <span>Available for freelance projects and full-time opportunities</span>
+                    <span>
+                      Available for freelance projects and full-time
+                      opportunities
+                    </span>
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="text-emerald-400 mt-1">•</span>
-                    <span>Interested in web development, mobile apps, and innovative solutions</span>
+                    <span>
+                      Interested in web development, mobile apps, and innovative
+                      solutions
+                    </span>
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="text-emerald-400 mt-1">•</span>
-                    <span>Open to discussing new technologies and best practices</span>
+                    <span>
+                      Open to discussing new technologies and best practices
+                    </span>
                   </div>
                 </div>
               </div>
@@ -371,12 +403,15 @@ const ContactSection: React.FC = () => {
 
                 {/* Submit Status */}
                 {submitStatus !== "idle" && (
-                  <div className={`flex items-center gap-2 p-3 rounded-lg text-sm ${
-                    submitStatus === "success"
-                      ? "bg-emerald-400/10 text-emerald-400 border border-emerald-400/30"
-                      : "bg-red-400/10 text-red-400 border border-red-400/30"
-                  }`}>
-                    {submitStatus === "success" ? (                      <CheckCircle size={16} />
+                  <div
+                    className={`flex items-center gap-2 p-3 rounded-lg text-sm ${
+                      submitStatus === "success"
+                        ? "bg-emerald-400/10 text-emerald-400 border border-emerald-400/30"
+                        : "bg-red-400/10 text-red-400 border border-red-400/30"
+                    }`}
+                  >
+                    {submitStatus === "success" ? (
+                      <CheckCircle size={16} />
                     ) : (
                       <AlertCircle size={16} />
                     )}
