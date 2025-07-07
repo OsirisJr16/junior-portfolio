@@ -42,6 +42,18 @@ export const projects: Project[] = [
 ];
 
 export const experiences: Experience[] = [
+    {
+      id: 'exp-004',
+      company: 'Relia Consulting',
+      role: 'Full Stack Developer',
+      duration: 'Jun 2025 - Present',
+      location: 'Antananarivo',
+      description: [
+        'Developed the frontend and backend of the UFM Madagascar Website using ReactJs and ExpressJS',
+        'Collaborated with clients to meet technical and functional requirements',
+      ],
+      technologies: ['ReactJs', 'Node.Js', 'PostgreSql' , 'Express'],
+    },
    {
     id: 'exp-003',
     company: 'Freelance Web Developer',
