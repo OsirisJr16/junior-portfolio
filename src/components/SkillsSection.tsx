@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import type { SkillCategory } from "../types/skillCategory";
 import type { Skill } from "../types/skill";
-import { Code, Database, Server, Wrench } from "lucide-react";
+import { Code, Database, Server, Wrench ,Workflow} from "lucide-react";
 import TerminalPrompt from "../shared/TerminalPrompt";
 
 const skillCategories: SkillCategory[] = [
@@ -109,6 +109,15 @@ const skillCategories: SkillCategory[] = [
       },
     ],
   },
+  {
+    id: "automation",
+    name: "Automation & AI",
+    icon: <Workflow size={20} />,
+    color: "pink",
+    skills: [
+      { name: "n8n", level: 85, category: "workflow" },
+    ],
+  }
 ];
 
 interface SkillBarProps {
